@@ -18,5 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return 'Docker works!';
+    return 'Docker works! Company project';
+});
+
+//Company routes
+Route::group(['prefix' => 'company'], function () {
+    Route::post('/', 'CompanyController@create');
+    Route::get('/', 'CompanyController@read')->where('companyId', '[0-9]+');
+    Route::put('/{companyId}', 'CompanyController@update')->where('companyId', '[0-9]+');
+    Route::delete('/{companyId}', 'CompanyController@delete')->where('companyId', '[0-9]+');
 });

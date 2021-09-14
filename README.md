@@ -8,6 +8,7 @@ Race REST API
 * cd src
 * cp .env.example .env
 * docker-compose build 
+* composer install
 * ./console migrate
 * docker-compose start
 

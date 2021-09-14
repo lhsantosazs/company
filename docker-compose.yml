@@ -28,8 +28,8 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: race
-      MYSQL_USER: race
+      MYSQL_DATABASE: company
+      MYSQL_USER: company
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev

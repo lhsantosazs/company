@@ -34,36 +34,21 @@ class Employee extends Model
     }
 
     /**
-     * Scope to filter by name
+     * Scope to filter by cpf
      * @param Builder $query
-     * @param string $name
+     * @param string $cpf
      * @return Builder $query
      */
-    public function scopeFilterByName(Builder $query, string $name) : Builder
+    public function scopeFilterByCpf(Builder $query, string $cpf) : Builder
     {
-        return $query->where('name', $name);
-    }
-
-    /**
-     * Scope to filter by state_id
-     * @param Builder $query
-     * @param ?string $state_id
-     * @return Builder $query
-     */
-    public function scopeFilterByStateId(Builder $query, ?string $state_id) : Builder
-    {
-        if (!empty($state_id)) {
-            $query->where('state_id', $state_id);
-        }
-
-        return $query;
+        return $query->where('cpf', $cpf);
     }
 
     /**
      * Get the user that owns the phone.
      */
-    public function state()
+    public function company()
     {
-        return $this->belongsTo('App\Models\State');
+        return $this->belongsToMany('App\Models\Company');
     }
 }

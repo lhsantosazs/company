@@ -21,7 +21,7 @@ class CreateCustomerTable extends Migration
             $table->string('email');
             $table->string('adress');
             $table->string('password');
-            $table->binary('doc');
+            $table->longText('doc');
             $table->timestamps();
         });
     }

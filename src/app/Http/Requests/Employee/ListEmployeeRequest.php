@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\City;
+namespace App\Http\Requests\Employee;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCityRequest extends FormRequest
+class ListEmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,7 @@ class UpdateCityRequest extends FormRequest
     public function rules()
     {
         return [
-            'state_id' => 'exists:state,id',
-            'name' => 'string'
+            'id' => 'numeric|exists:employee,id'
         ];
     }
 

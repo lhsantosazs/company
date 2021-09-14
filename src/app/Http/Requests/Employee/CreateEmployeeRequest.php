@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\City;
+namespace App\Http\Requests\Employee;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CreateCityRequest extends FormRequest
+class CreateEmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,14 @@ class CreateCityRequest extends FormRequest
     public function rules()
     {
         return [
-            'state_id' => 'required|exists:state,id',
-            'name' => 'required|string'
+            'companyId' => 'numeric|exists:company,id',
+            'login' => 'required|string',
+            'name' => 'required|string',
+            'cpf' => 'required|string',
+            'email' => 'required|string',
+            'adress' => 'required|string',
+            'password' => 'required|string',
+            'doc' => 'required'
         ];
     }
 

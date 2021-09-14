@@ -28,3 +28,11 @@ Route::group(['prefix' => 'company'], function () {
     Route::put('/{companyId}', 'CompanyController@update')->where('companyId', '[0-9]+');
     Route::delete('/{companyId}', 'CompanyController@delete')->where('companyId', '[0-9]+');
 });
+
+//Employee routes
+Route::group(['prefix' => 'employee'], function () {
+    Route::post('/', 'EmployeeController@create');
+    Route::get('/', 'EmployeeController@read')->where('employeeId', '[0-9]+');
+    Route::put('/{employeeId}', 'EmployeeController@update')->where('employeeId', '[0-9]+');
+    Route::delete('/{employeeId}', 'EmployeeController@delete')->where('employeeId', '[0-9]+');
+});

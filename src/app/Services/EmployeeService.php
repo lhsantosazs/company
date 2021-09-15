@@ -144,6 +144,9 @@ class EmployeeService
      */
     protected function getEmployeeByIdWithCompany(?int $id)
     {
-        return Employee::filterById($id)->with('company')->get()->toArray();
+        return Employee::filterById($id)
+                       ->with('company:id,name,adress')
+                       ->get()
+                       ->toArray();
     }
 }

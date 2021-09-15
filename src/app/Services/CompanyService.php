@@ -124,6 +124,12 @@ class CompanyService
      */
     protected function getCompanyByIdWithCustomerAndEmployees(?int $id)
     {
-        return Company::filterById($id)->with('customers','employees')->get()->toArray();
+        return Company::filterById($id)
+                      ->with(
+                        'customers:id,name,email',
+                        'employees:id,name,email'
+                      )
+                      ->get()
+                      ->toArray();
     }
 }

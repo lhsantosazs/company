@@ -144,6 +144,9 @@ class CustomerService
      */
     protected function getCustomerByIdWithCompany(?int $id)
     {
-        return Customer::filterById($id)->with('company')->get()->toArray();
+        return Customer::filterById($id)
+                       ->with('company:id,name,adress')
+                       ->get()
+                       ->toArray();
     }
 }
